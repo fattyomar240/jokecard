@@ -27,7 +27,7 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --fetch-retries=5 --fetch-retry-maxtimeout=120000 || npm ci --fetch-retries=5 --fetch-retry-maxtimeout=120000
 
       - name: Build
         run: npm run build
